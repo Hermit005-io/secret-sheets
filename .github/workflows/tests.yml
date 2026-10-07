@@ -2,15 +2,21 @@ name: tests
 
 on: [push, pull_request]
 
+# A newer push replaces a run that is still going.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   python:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
         python-version: ["3.10", "3.12", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install cryptography pytest hypothesis ruff
@@ -19,12 +25,13 @@ jobs:
 
   web:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: web
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: npm ci
@@ -33,17 +40,20 @@ jobs:
       - run: npm run build
       - name: docs/index.html is exactly what the source builds
         run: git diff --exit-code -- ../docs/index.html
-      - run: npx playwright install --with-deps chromium
+      # The browser only. GitHub's machines already have the system libraries
+      # it needs, and installing them again has been known to stall.
+      - run: npx playwright install chromium
       - run: npm run e2e
 
   cross-checks:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: pip install cryptography

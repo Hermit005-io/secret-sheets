@@ -221,11 +221,11 @@ remains is in [RISKS.md](RISKS.md). The short version:
 - **Old sheets keep working.** If the secret changes, make a new set and ask
   for the old sheets back. Paper cannot be recalled.
 - **Short secrets only.** Up to 510 bytes: passwords, codes, a short note.
-- **Scanning has had one real test so far.** A 3-of-5 set printed on an HP
-  printer was read back, all five sheets, by a MacBook's camera in Chrome,
-  and the secret returned. Beyond that it has been tested with a simulated
-  camera and pictures of the print layout, not yet on phones, in other
-  browsers, or with other printers and lighting. Typing always works.
+- **Scanning has been tested on real paper, in a small way.** A 3-of-5 set
+  printed on an HP printer was read back by a MacBook's camera in Chrome and
+  by an iPhone's camera in Safari and in Chrome, and the secret returned each
+  time. That is one printer, one laptop and one phone: not yet an Android
+  phone, other printers, or poor light. Typing always works.
 - **No test with real people yet.** Whether someone who has never seen it can
   split and recover unaided is the next thing to measure, and the results
   will be published here whatever they are.
