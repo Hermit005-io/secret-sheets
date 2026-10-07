@@ -1,0 +1,12 @@
+{
+  "name": "secretsheets-tools",
+  "private": true,
+  "type": "module",
+  "description": "Scripts that check the Python maths against the audited shamir-secret-sharing library.",
+  "dependencies": {
+    "shamir-secret-sharing": "0.0.4"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

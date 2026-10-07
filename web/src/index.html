@@ -1,0 +1,30 @@
+<!doctype html>
+<!--
+  Secret Sheets. The whole tool is this one file: nothing is fetched, and
+  nothing you type is sent anywhere. Source and format specification are in
+  the project's repository.
+
+  It includes three open-source libraries, each under its own licence:
+    shamir-secret-sharing 0.0.4 (Apache License 2.0), copyright 2023 Horkos, Inc.
+    jsQR 1.4.0 (Apache License 2.0), github.com/cozmo/jsQR
+    qrcode-generator 1.4.4 (MIT License), copyright 2009 Kazuhiko Arase
+  See THIRD-PARTY-LICENSES.md in the repository for the licence texts.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- This page asks the browser to refuse every network request it could make.
+     Only the script and styles written into this file are allowed to run. -->
+<meta http-equiv="Content-Security-Policy" content="__POLICY__">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Split a secret into printed sheets for people you trust. Works offline; nothing leaves this device.">
+<title>Secret Sheets</title>
+<style>__STYLE__</style>
+</head>
+<body>
+<main></main>
+<noscript><p class="lead">This page needs JavaScript to work. Nothing is sent anywhere: it runs entirely on this device.</p></noscript>
+<script>__SCRIPT__</script>
+</body>
+</html>

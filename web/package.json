@@ -1,0 +1,28 @@
+{
+  "name": "secret-sheets-web",
+  "private": true,
+  "type": "module",
+  "description": "The Secret Sheets web page: one HTML file that works offline.",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"tests/*.test.ts\"",
+    "e2e": "playwright test",
+    "check": "npm run typecheck && npm test && npm run build && npm run e2e"
+  },
+  "dependencies": {
+    "jsqr": "1.4.0",
+    "qrcode-generator": "1.4.4",
+    "shamir-secret-sharing": "0.0.4"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

@@ -1,0 +1,5 @@
+# The tool itself
+cryptography>=42
+# Tests
+pytest>=7
+hypothesis>=6

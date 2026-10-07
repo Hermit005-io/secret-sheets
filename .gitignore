@@ -1,0 +1,16 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+node_modules/
+
+# The web page is built into docs/index.html, which is kept. These are not.
+web/dist/
+web/test-results/
+web/playwright-report/
+
+# Sheets made while trying the tool out. Real ones should never be committed.
+sheets/
